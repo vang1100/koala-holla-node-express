@@ -1,7 +1,17 @@
 console.log( 'js' );
 
+
+
 function addKoala(){
   console.log('submit koala');
+  let nameInput = document.querySelector('#nameIn').value;
+  let koalaData = document.querySelector('#viewKoalas');
+
+  koalaData.innerHTML += `
+  <tr>
+    <td>${nameInput}</td>
+  </tr>
+    `;
 }
 
 
