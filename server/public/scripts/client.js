@@ -62,7 +62,30 @@ function addKoala(){
 //function saveKoala(){
   //console.log( 'in saveKoala' );
   // axios call to server to get koalas
+
+  function saveKoala(){
+  let nameInput = document.querySelector('#nameIn').value;
+  let ageInput = document.querySelector('#ageIn').value;
+  let colorInput = document.querySelector('#colorIn').value;
+  let transferInput = document.querySelector('#readyForTransferIn').value;
+  let notesInput = document.querySelector('#notesIn').value;
+  
+  let koalasForServer = {
+    name: nameInput,
+    age: ageInput,
+    favoriteColor: colorInput,
+    readyForTransfer: transferInput,
+    notes: notesInput
+  };
+
+  axios.post('/koalas', koalasForServer).then((repsonse) => {
+    console.log(response);
+    getKoalas();
+  }).catch((error) => {
+    console.log(error);
+  })
+  }
  
 //}
 
-//getKoalas();
+getKoalas();
