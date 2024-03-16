@@ -29,6 +29,28 @@ function addKoala(){
 //function getKoalas(){
  // console.log( 'in getKoalas' );
   // axios call to server to get koalas
+
+  function getKoalas(){
+    axios.get('/koalas').then((response) => {
+      console.log(response);
+
+      let koalasFromServer = response.data;
+      console.log(koalasFromServer);
+
+      let koalasDIV = document.querySelector('#viewKoalas');
+
+      for (let items of koalasFromServer){
+        koalasDIV.innerHTML += `
+        <tr>
+          <td>${items.name}<td>
+        `;
+      }
+    }).catch((error) => {
+      console.log(error);
+    })
+  }
+
+  getKoalas();
   
 //} // end getKoalas
 
