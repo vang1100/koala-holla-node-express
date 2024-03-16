@@ -1,6 +1,8 @@
 console.log( 'js' );
 
+//import axios from 'axios';
 
+// const axios = require('axios');
 
 function addKoala(){
   console.log('submit koala');
@@ -31,11 +33,12 @@ function addKoala(){
   // axios call to server to get koalas
 
   function getKoalas(){
+    console.log('in getKoalas');
     axios.get('/koalas').then((response) => {
-      console.log(response);
+      console.log('response is:', response);
 
       let koalasFromServer = response.data;
-      console.log(koalasFromServer);
+      console.log('koalas froms server:', koalasFromServer);
 
       let koalasDIV = document.querySelector('#viewKoalas');
 
@@ -78,7 +81,7 @@ function addKoala(){
     notes: notesInput
   };
 
-  axios.post('/koalas', koalasForServer).then((repsonse) => {
+  axios.post('/koalas', koalasForServer).then((response) => {
     console.log(response);
     getKoalas();
   }).catch((error) => {
@@ -88,4 +91,4 @@ function addKoala(){
  
 //}
 
-getKoalas();
+
