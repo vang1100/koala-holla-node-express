@@ -13,3 +13,17 @@ app.use('/koalas', koalaRouter);
 app.listen(PORT, () => {
   console.log('listening on port', PORT);
 });
+
+let koalaList = [
+  { name: 'Kiwi',
+    age: '5',
+    favoriteColor: 'purple',
+    readyForTransfer: 'false',
+    notes: 'Has a minor injury.'
+  }
+];
+
+app.get('/koalas', (req, res) => {
+  console.log('GET request made to /koalas');
+  res.send(koalaList);
+});
