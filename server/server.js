@@ -16,7 +16,7 @@ app.listen(PORT, () => {
 
 let koalaList = [
   { name: 'Kiwi',
-    age: '5',
+    age: 5,
     favoriteColor: 'purple',
     readyForTransfer: 'false',
     notes: 'Has a minor injury.'

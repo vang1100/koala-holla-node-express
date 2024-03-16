@@ -39,10 +39,15 @@ function addKoala(){
 
       let koalasDIV = document.querySelector('#viewKoalas');
 
-      for (let items of koalasFromServer){
+      for (let items of koalasFromServer) {
         koalasDIV.innerHTML += `
         <tr>
-          <td>${items.name}<td>
+          <td>${items.name}</td>
+          <td>${items.age}</td>
+          <td>${items.favoriteColor}</td>
+          <td>${items.readyForTransfer}</td>
+          <td>${items.notes}</td>
+        </tr>
         `;
       }
     }).catch((error) => {
