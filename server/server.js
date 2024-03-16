@@ -20,13 +20,13 @@ let koalaList = [
   { name: 'Kiwi',
     age: 5,
     favoriteColor: 'purple',
-    readyForTransfer: 'false',
+    readyForTransfer: false,
     notes: 'Has a minor injury.'
   },
   { name: 'Mocha',
     age: 10,
     favoriteColor: 'green',
-    readyForTransfer: 'true',
+    readyForTransfer: true,
     notes: 'n/a'
   }
 ];
