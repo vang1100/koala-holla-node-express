@@ -52,10 +52,10 @@ koalaRouter.get('/', (req, res) =>{
 koalaRouter.post('/', (req, res) => {
     let newKoalas = req.body;
     console.log('adding new koalas', newKoalas);
-    let queryText = `INSERT INTO koalas (name, age, favColor, isReady, notes)
-        VALUES ($1, $2, $3, $4, $5)`;
-    pool.query(queryText, [newKoalas.name, newKoalas.age, newKoalas.favColor, newKoalas.isReady, newKoalas.notes])
-        .then((result) => {
+    let queryText = `INSERT INTO "koalas" ("name", "age", "favColor", "notes")
+        VALUES ($1, $2, $3, $4)`;
+    pool.query(queryText, [newKoalas.name, newKoalas.age, newKoalas.favColor, newKoalas.notes])
+        .then(() => {
             res.sendStatus(201);
         })
         .catch((error) => {
