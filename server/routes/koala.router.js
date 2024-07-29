@@ -81,4 +81,8 @@ koalaRouter.post('/', (req, res) => {
 
 // DELETE
 
+koalaRouter.delete('/:id', (req, res) => {
+    
+})
+
 module.exports = koalaRouter;
