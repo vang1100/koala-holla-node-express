@@ -29,7 +29,7 @@ function getKoalas(){
             <td>${items.color}</td>
             <td>${items.transfer}</td>
             <td>${items.notes}</td>
-            <td><button>Delete</button></td>
+            <td><button onclick="deleteKoala(event)">Delete</button></td>
             `
     }
 
@@ -71,3 +71,11 @@ function saveKoala(event){
 getKoalas();
 
 // need function for delete button
+
+function deleteKoala(event){
+console.log('testing the delete button');
+
+let td = event.target.parentElement;
+let tr = td.parentElement;
+tr.remove();
+}
