@@ -1,5 +1,7 @@
 //const koalaRouter = require("../../routes/koala.router");
 
+//const { response } = require("express");
+
 console.log( 'js' );
 
 function getKoalas(){
@@ -35,16 +37,34 @@ function getKoalas(){
 
 } // end getKoalas
 
-function saveKoala(){
+function saveKoala(event){
+  event.preventDefault();
   console.log( 'in saveKoala' );
-   // let nameVal = document.querySelector('#nameIn').value;
-  // let ageVal = document.querySelector('#ageIn').value;
-  // let colorVal = document.querySelector('#colorIn').value;
-  // let transferStatus = document.querySelector('#readyForTransferIn').value;
-  // let notesVal = document.querySelector('#notesIn').value;
+  let nameVal = document.querySelector('#nameIn').value;
+  let ageVal = document.querySelector('#ageIn').value;
+  let colorVal = document.querySelector('#colorIn').value;
+  let transVal = document.querySelector('#readyForTransferIn').value;
+  let notesVal = document.querySelector('#notesIn').value;
   let viewKoalasDiv = document.querySelector('#viewKoalas');
-  viewKoalasDiv.innerHTML += `test`;
+
+  let koalasToAdd = {
+    name: nameVal,
+    age: ageVal,
+    color: colorVal,
+    transfer: transVal,
+    notes: notesVal
+
+  }
+
   // axios call to server to get koalas
+
+  axios.post('/koalas', koalasToAdd).then((response) =>{
+    console.log('response from post',response);
+    getKoalas();
+  }).catch((error) => {
+    console.log(error);
+    alert('something went wrong in axios post');
+  });
  
 }
 
