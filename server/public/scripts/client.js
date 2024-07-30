@@ -78,4 +78,5 @@ console.log('testing the delete button');
 let td = event.target.parentElement;
 let tr = td.parentElement;
 tr.remove();
+
 }
